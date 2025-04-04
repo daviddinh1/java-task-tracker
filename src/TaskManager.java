@@ -16,13 +16,30 @@ public class TaskManager {
         }
     }
 
+    //overload method to allow optional parameters based on what users pick
+    public void updateTask(int id, int updateSelection, String updateVal ){
+        if(updateSelection == 1){
+            tasks.get(id).setTitle(updateVal);
+        }
+        else if(updateSelection == 2){
+            tasks.get(id).setDescription(updateVal);
+        }
+        else if(updateSelection == 3){
+            tasks.get(id).setDueDate(updateVal);
+        }
+        else{
+            System.out.println("invalid selection");
+        }
+    }
+
     public void getTask(){
         if(tasks.isEmpty()){
             System.out.println("No task to view");
         } else{
-            for(Task t: tasks){
-                System.out.println("id: " + t.getId());
-                System.out.println("Title: " + t.getTitle());
+            for(int i = 0 ; i < tasks.size(); i++){
+                System.out.println("id: " + i);
+                System.out.println("UUID: " + tasks.get(i).getId());
+                System.out.println("Title: " + tasks.get(i).getTitle());
             }
         }
 
